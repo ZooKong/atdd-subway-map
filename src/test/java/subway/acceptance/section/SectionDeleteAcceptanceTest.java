@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static subway.acceptance.common.handler.BodyJsonPathHandler.아이디_추출;
 import static subway.acceptance.common.handler.BodyJsonPathHandler.지하철역_이름_목록_추출;
 import static subway.acceptance.common.handler.HttpStatusValidationHandler.*;
@@ -82,8 +83,10 @@ public class SectionDeleteAcceptanceTest {
 
         var 지하철_3_호선_역_이름_목록 = 지하철역_이름_목록_추출(연신내역_교대역_노선_응답);
 
-        assertThat(지하철_3_호선_역_이름_목록).hasSize(2);
-        assertThat(지하철_3_호선_역_이름_목록).contains(연신내.name(), 교대.name());
+        assertAll("지하철_3_호선_역_이름_목록 검증",
+                () -> assertThat(지하철_3_호선_역_이름_목록).hasSize(2),
+                () -> assertThat(지하철_3_호선_역_이름_목록).contains(연신내.name(), 교대.name())
+        );
     }
 
     /**
@@ -108,8 +111,10 @@ public class SectionDeleteAcceptanceTest {
 
         var 지하철_3_호선_역_이름_목록 = 지하철역_이름_목록_추출(연신내역_교대역_노선_응답);
 
-        assertThat(지하철_3_호선_역_이름_목록).hasSize(2);
-        assertThat(지하철_3_호선_역_이름_목록).contains(연신내.name(), 교대.name());
+        assertAll("지하철_3_호선_역_이름_목록 검증",
+                () -> assertThat(지하철_3_호선_역_이름_목록).hasSize(2),
+                () -> assertThat(지하철_3_호선_역_이름_목록).contains(연신내.name(), 교대.name())
+        );
     }
 
     /**
@@ -138,8 +143,10 @@ public class SectionDeleteAcceptanceTest {
 
         var 지하철_3_호선_역_이름_목록 = 지하철역_이름_목록_추출(연신내역_교대역_노선_응답);
 
-        assertThat(지하철_3_호선_역_이름_목록).hasSize(3);
-        assertThat(지하철_3_호선_역_이름_목록).contains(연신내.name(), 교대.name(), 수서.name());
+        assertAll("지하철_3_호선_역_이름_목록 검증",
+                () -> assertThat(지하철_3_호선_역_이름_목록).hasSize(3),
+                () -> assertThat(지하철_3_호선_역_이름_목록).contains(연신내.name(), 교대.name(), 수서.name())
+        );
     }
 
 }
